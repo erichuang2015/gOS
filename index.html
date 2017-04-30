@@ -1,123 +1,126 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="stylesheet.css">
-        <title>
-            /g/OS
-        </title>
-        
-        <!--
+
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>
+        /g/OS
+    </title>
+    <script src="saveSettings.js"></script>
+    <!--
         /g/OS written by Alyx
         Not copyrighted or anything - don't be a fag and steal it. /g/OS is my fantastic work.
         Written in html, js, and css for the best possible user experience.
         -->
-        <script src="jquery.js"></script>
-        <script src="jquery-ui.js"></script>
-        <script>
-                $(document).ready(function() {
-        $("#infoApp").draggable().resizable();
-        });
-        </script>
-    </head>
-    <body onload="setTimeout(start, 1000)">
-        <div id="splashscreen">
-            <h1>
-                <p>Welcome to /g/OS</p>
-                <p><img id="cloverImage" src="logo.png"></p>
-                <sub>someone make a logo pls</sub>
-            </h1>
-        </div>
-        
-        <audio id="xpSound">
-        <source src="xp.mp3">
-        </audio>
-        
-        <div id="desktop">
-            <div id="snakeIcon" class="desktopIcon" onClick="openApp(snake)"></div>
-            <div id="settingsIcon" class="desktopIcon" onClick="openApp(settings)"></div>
-            <div id="infoIcon" class="desktopIcon" onClick="openApp(info)"></div>
-            
-            
-            <div class="app" id="settingsApp">
-                <div class="closeButton" onClick="closeApps()"></div>
-                <p>Settings:</p>
-                <p>Background URL:
-                    <input id="imageURL" type="text" value="default.jpg">
-                </p>
-                <p><button onClick="saveSettings()">Save</button></p>
-            </div>
-            
-            <div class="app" id="infoApp">
-                <div class="closeButton" onClick="closeApps()"></div>
-                <h4>/g/OS version 0.1</h4>
-                <p>/g/OS is made by Alyx using html 😀, css 😃, and javascript 😂 using emojicode 😂👌💯💯💯😂👌</p>
-                <p>Todo:</p>
-                <p>-Add more options
-                <p>-Make settings stay persistent
-                <p>-Music app filled w/ weeb shit
-                <p>-Add ability to open apps (iframes with random shit)
-                <p>-make a linux distro that's just a chromium instance with /g/OS in it. Maybe gentoo. Idk.
-                <p>It's not copyrighted, but still don't steal my work 😡. Gib it back, Jamal 👨🏿</p>
-            </div>
-            
-            <div class="app" id="snakeApp">
-                <div class="closeButton" onClick="closeApps()"></div>
-                <iframe src="snake/index.html"></iframe>
-            </div>
-        </div>
-    </body>
-
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
     <script>
-        
+        $(document).ready(function () {
+            $("#infoApp").draggable().resizable();
+        });
+    </script>
+</head>
 
-        
-        appRunning = false;
-        
-        var xp = document.getElementById("xpSound")
-        var settings = document.getElementById("settingsApp")
-        var info = document.getElementById("infoApp")
-        var snake = document.getElementById("snakeApp")
-       
-        function start(){
-            document.getElementById("splashscreen").style.display = "none";
-            document.getElementById("desktop").style.display = "block";
-            xp.play()
-        }
-        
-        function openApp(app){    
-            if(appRunning == false){
-                appRunning = true;
-                app.style.display = "block";
-                switch(app){
-                    case 'settings':
-                        //settingsAppPage.style.display = "block";
-                        break;
-                    case 'info':
-                        //infoAppPage.style.display = "block";
-                        break;
-                    case 'snake':
-                        //snakeAppPage.style.display = "block";
-                        break;
-                    default:
-                        //alert("wtf");
-                }
+<body onload="setTimeout(start, 1000)">
+    <div id="splashscreen">
+        <h1>
+            <p>Welcome to /g/OS</p>
+            <p><img id="cloverImage" src="logo.png"></p>
+            <sub>someone make a logo pls</sub>
+        </h1>
+    </div>
+
+    <audio id="xpSound">
+        <source src="xp.mp3">
+    </audio>
+
+    <div id="desktop">
+        <div id="snakeIcon" class="desktopIcon" onClick="openApp(snake)"></div>
+        <div id="settingsIcon" class="desktopIcon" onClick="openApp(settings)"></div>
+        <div id="infoIcon" class="desktopIcon" onClick="openApp(info)"></div>
+
+
+        <div class="app" id="settingsApp">
+            <div class="closeButton" onClick="closeApps()"></div>
+            <p>Settings:</p>
+            <p>Background URL:
+                <input id="imageURL" type="text" value="default.jpg">
+            </p>
+            <p><button onClick="saveSettings()">Save</button></p>
+            <p><button onClick="loadSettings()">Load</button></p>
+        </div>
+
+        <div class="app" id="infoApp">
+            <div class="closeButton" onClick="closeApps()"></div>
+            <h4>/g/OS version 0.1</h4>
+            <p>/g/OS is made by Alyx using html 😀, css 😃, and javascript 😂 using emojicode 😂👌💯💯💯😂👌</p>
+            <p>Todo:</p>
+            <p>-Add more options
+                <p>-Make settings stay persistent
+                    <p>-Music app filled w/ weeb shit
+                        <p>-Add ability to open apps (iframes with random shit)
+                            <p>-make a linux distro that's just a chromium instance with /g/OS in it. Maybe gentoo. Idk.
+                                <p>It's not copyrighted, but still don't steal my work 😡. Gib it back, Jamal 👨🏿</p>
+        </div>
+
+        <div class="app" id="snakeApp">
+            <div class="closeButton" onClick="closeApps()"></div>
+            <iframe src="snake/index.html"></iframe>
+        </div>
+    </div>
+</body>
+
+<script>
+    appRunning = false;
+
+    var xp = document.getElementById("xpSound")
+    var settings = document.getElementById("settingsApp")
+    var info = document.getElementById("infoApp")
+    var snake = document.getElementById("snakeApp")
+
+    function start() {
+        document.getElementById("splashscreen").style.display = "none";
+        document.getElementById("desktop").style.display = "block";
+        xp.play()
+    }
+
+    function openApp(app) {
+        if (appRunning == false) {
+            appRunning = true;
+            app.style.display = "block";
+            switch (app) {
+                case 'settings':
+                    //settingsAppPage.style.display = "block";
+                    break;
+                case 'info':
+                    //infoAppPage.style.display = "block";
+                    break;
+                case 'snake':
+                    //snakeAppPage.style.display = "block";
+                    break;
+                default:
+                //alert("wtf");
             }
         }
-        
-        function closeApps(){
-            settings.style.display = "none";
-            info.style.display = "none";
-            snake.style.display = "none";
-            appRunning = false;
-        }
-        
-        function saveSettings(){
-            var newBackground = document.getElementById("imageURL").value
-            document.getElementById("desktop").style.backgroundImage = "url('" + newBackground + "')";
-            //document.getElementsByClassName("desktopIcon").style.height = "50px";
-            //document.getElementsByClassName("desktopIcon").style.width = "50px";
-        }
-    </script>
-    
-    
-    
+    }
+
+    function closeApps() {
+        settings.style.display = "none";
+        info.style.display = "none";
+        snake.style.display = "none";
+        appRunning = false;
+    }
+
+    function saveSettings() {
+        var newBackground = document.getElementById("imageURL").value
+        document.getElementById("desktop").style.backgroundImage = "url('" + newBackground + "')";
+
+        //document.getElementsByClassName("desktopIcon").style.height = "50px";
+        //document.getElementsByClassName("desktopIcon").style.width = "50px";
+        saveSetting(newBackground);
+
+    }
+</script>
+
+
+
 </html>
