@@ -3,7 +3,7 @@ Welcome to the gOS, inspired by /g/.
 
 Things done so far:
 * Default Windows XP background
-* Can chage the defaul background
+* Can chage the default background
 * Plays Windows XP startup sound on page load
 * Stolen logo that spins using CSS
 * If/Else statements
